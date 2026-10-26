@@ -122,12 +122,101 @@
       <div class="wrap contact-grid">
         <div><div class="eyebrow">Start a conversation</div><h2>Let's create something memorable.</h2><p>Planning a school performance, event or creative project? Send an enquiry and tell us what you have in mind.</p><p><strong>Serving schools, organizers and creative partners.</strong></p></div>
         <form class="contact-box" id="enquiry">
-          <div class="eyebrow">Booking enquiry</div>
-          <label for="person">Your name</label><input id="person" name="person" placeholder="Enter your name" required>
-          <label for="event">What are you planning?</label><select id="event" name="event"><option>School performance</option><option>Live entertainment</option><option>Creative production</option><option>Partnership</option><option>Other enquiry</option></select>
-          <label for="details">Tell us a little more</label><textarea id="details" name="details" placeholder="Event date, school or venue, audience size..." required></textarea>
-          <button class="btn" type="submit">Prepare enquiry message ↗</button>
-          <p style="font-size:12px;margin-bottom:0">This demo form prepares a message for you to copy. Add your official phone number and email before publishing.</p>
+  <div class="eyebrow">School Booking Form</div>
+
+  <label for="person">Teacher's Name</label>
+  <input id="person" required>
+
+  <label for="phone">Phone / WhatsApp Number</label>
+  <input id="phone" type="tel" required>
+
+  <label for="school">School Name</label>
+  <input id="school" required>
+
+  <label for="county">County</label>
+  <input id="county" required>
+
+  <label for="constituency">Constituency</label>
+  <input id="constituency" required>
+
+  <label for="zone">Zone</label>
+  <input id="zone" required>
+
+  <label for="date">Preferred Performance Date</label>
+  <input id="date" type="date" required>
+
+  <label for="schools">Number of Participating Schools</label>
+  <input id="schools" type="number" min="1">
+
+  <label for="learners">Expected Number of Learners</label>
+  <input id="learners" type="number" min="1" required>
+
+  <label for="level">School Level</label>
+  <select id="level">
+    <option>JSS</option>
+    <option>Senior Secondary</option>
+    <option>Both JSS and Senior Secondary</option>
+    <option>Other</option>
+  </select>
+
+  <label for="kiswahili">JSS Kiswahili Setbooks</label>
+  <select id="kiswahili" multiple>
+    <option>Wema Hawozi</option>
+    <option>Mshale wa Matumaini</option>
+    <option>Hidaya</option>
+    <option>Hodi Hodi Mashairi</option>
+    <option>Mji wa Matarajio</option>
+    <option>Uteuzi wa Chale</option>
+  </select>
+
+  <label for="english">JSS English Setbooks</label>
+  <select id="english" multiple>
+    <option>The Last Laugh</option>
+    <option>Strange Happenings</option>
+    <option>Tears of Joy</option>
+    <option>Daughters of Nature</option>
+    <option>Bridges Without Rivers</option>
+  </select>
+
+  <label for="seniorEnglish">Senior Secondary English Setbooks</label>
+  <select id="seniorEnglish" multiple>
+    <option>Fathers of Nations</option>
+    <option>The Samaritan</option>
+    <option>A Silent Song</option>
+  </select>
+
+  <label for="seniorKiswahili">Senior Secondary Kiswahili Setbooks</label>
+  <select id="seniorKiswahili" multiple>
+    <option>Bembea ya Maisha</option>
+    <option>Nguzo Jadi</option>
+    <option>Mapambazuko ya Macho na Hadithi Nyingine</option>
+  </select>
+
+  <label for="cre">CRE / Bible-Based Performances</label>
+  <select id="cre" multiple>
+    <option>Abraham</option>
+    <option>Moses</option>
+    <option>Jeremiah</option>
+    <option>Nehemiah</option>
+    <option>Amos</option>
+  </select>
+
+  <label for="other">Other Performances</label>
+  <select id="other" multiple>
+    <option>Fasihi Simulizi</option>
+    <option>Oral Literature</option>
+    <option>Esther and Mordecai</option>
+    <option>David and Goliath</option>
+    <option>Abraham</option>
+  </select>
+
+  <label for="custom">Specify Another Book or Performance</label>
+  <input id="custom" placeholder="Enter book or performance title">
+
+  <label for="questions">Any Other Questions or Comments?</label>
+  <textarea id="questions" placeholder="Write your questions or comments here"></textarea>
+
+  <button class="btn" type="submit">Send Booking Enquiry ↗</button>
         </form>
       </div>
     </section>
@@ -135,21 +224,50 @@
   <footer><div class="wrap foot"><span>© <span id="year"></span> Mega Arts Production</span><span>Stories • Performance • Creativity</span></div></footer>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('enquiry').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('person').value.trim();
-      const event = document.getElementById('event').value;
-      const details = document.getElementById('details').value.trim();
-      const message = `Hello Mega Arts Production, my name is ${name}. I am enquiring about: ${event}. Details: ${details}`;
-      const box = document.createElement('textarea');
-      box.value = message;
-      box.setAttribute('readonly','');
-      box.style.cssText = 'position:fixed;left:-9999px;top:0';
-      document.body.appendChild(box); box.select();
-      try { document.execCommand('copy'); alert('Enquiry message copied. Add your official WhatsApp number to the site so visitors can send it to you.'); }
-      catch (_) { alert(message); }
-      box.remove();
-    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+document.getElementById('enquiry').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const ids = [
+    'person','phone','school','county','constituency','zone','date',
+    'schools','learners','level','kiswahili','english',
+    'seniorEnglish','seniorKiswahili','cre','other','custom','questions'
+  ];
+
+  const labels = {
+    person:"Teacher", phone:"Phone/WhatsApp", school:"School",
+    county:"County", constituency:"Constituency", zone:"Zone",
+    date:"Preferred date", schools:"Participating schools",
+    learners:"Expected learners", level:"School level",
+    kiswahili:"JSS Kiswahili books", english:"JSS English books",
+    seniorEnglish:"Senior Secondary English books",
+    seniorKiswahili:"Senior Secondary Kiswahili books",
+    cre:"CRE performances", other:"Other performances",
+    custom:"Other requested book/performance",
+    questions:"Questions/comments"
+  };
+
+  let message = "MEGA ARTS PRODUCTION - BOOKING ENQUIRY\n\n";
+
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    let value = el.value;
+
+    if (el.multiple) {
+      value = Array.from(el.selectedOptions).map(o => o.value).join(", ");
+    }
+
+    if (value.trim()) {
+      message += labels[id] + ": " + value + "\n";
+    }
+  });
+
+  window.open(
+    "https://wa.me/254714143724?text=" + encodeURIComponent(message),
+    "_blank"
+  );
+});
   </script>
 </body>
 </html>
