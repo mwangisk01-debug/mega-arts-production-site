@@ -170,37 +170,45 @@
   </select>
 
   <label for="english">JSS English Setbooks</label>
-  <select id="english" multiple>
-    <option>The Last Laugh</option>
-    <option>Strange Happenings</option>
-    <option>Tears of Joy</option>
-    <option>Daughters of Nature</option>
-    <option>Bridges Without Rivers</option>
-  </select>
+  
+<div class="book-options">
+  <label><input type="checkbox" name="english" value="The Last Laugh"> The Last Laugh</label>
+  <label><input type="checkbox" name="english" value="Strange Happenings"> Strange Happenings</label>
+  <label><input type="checkbox" name="english" value="Tears of Joy"> Tears of Joy</label>
+  <label><input type="checkbox" name="english" value="Daughters of Nature"> Daughters of Nature</label>
+  <label><input type="checkbox" name="english" value="Bridges Without Rivers"> Bridges Without Rivers</label>
+</div>
+          
 
   <label for="seniorEnglish">Senior Secondary English Setbooks</label>
-  <select id="seniorEnglish" multiple>
-    <option>Fathers of Nations</option>
-    <option>The Samaritan</option>
-    <option>A Silent Song</option>
-  </select>
+  
+<div class="book-options">
+  <label><input type="checkbox" name="seniorEnglish" value="Fathers of Nations"> Fathers of Nations</label>
+  <label><input type="checkbox" name="seniorEnglish" value="The Samaritan"> The Samaritan</label>
+  <label><input type="checkbox" name="seniorEnglish" value="A Silent Song"> A Silent Song</label>
+</div>
+          
 
   <label for="seniorKiswahili">Senior Secondary Kiswahili Setbooks</label>
-  <select id="seniorKiswahili" multiple>
-    <option>Bembea ya Maisha</option>
-    <option>Nguzo Jadi</option>
-    <option>Mapambazuko ya Macho na Hadithi Nyingine</option>
-  </select>
+  
+<div class="book-options">
+  <label><input type="checkbox" name="seniorKiswahili" value="Bembea ya Maisha"> Bembea ya Maisha</label>
+  <label><input type="checkbox" name="seniorKiswahili" value="Nguzo Jadi"> Nguzo Jadi</label>
+  <label><input type="checkbox" name="seniorKiswahili" value="Mapambazuko ya Macho na Hadithi Nyingine"> Mapambazuko ya Macho na Hadithi Nyingine</label>
+</div>
+          
 
   <label for="cre">CRE / Bible-Based Performances</label>
-  <select id="cre" multiple>
-    <option>Abraham</option>
-    <option>Moses</option>
-    <option>Jeremiah</option>
-    <option>Nehemiah</option>
-    <option>Amos</option>
-  </select>
+  
 
+<div class="book-options">
+  <label><input type="checkbox" name="cre" value="Abraham"> Abraham</label>
+  <label><input type="checkbox" name="cre" value="Moses"> Moses</label>
+  <label><input type="checkbox" name="cre" value="Jeremiah"> Jeremiah</label>
+  <label><input type="checkbox" name="cre" value="Nehemiah"> Nehemiah</label>
+  <label><input type="checkbox" name="cre" value="Amos"> Amos</label>
+</div>
+          
   <label for="other">Other Performances</label>
   <select id="other" multiple>
     <option>Fasihi Simulizi</option>
@@ -210,7 +218,7 @@
     <option>Abraham</option>
   </select>
 
-  <label for="custom">Specify Another Book or Performance</label>
+  <label for="custom">Specify Another Book or Performance that is not listed above</label>
   <input id="custom" placeholder="Enter book or performance title">
 
   <label for="questions">Any Other Questions or Comments?</label>
