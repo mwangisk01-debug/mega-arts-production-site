@@ -173,40 +173,6 @@
 
   <label for="kiswahili">JSS Kiswahili Setbooks</label>
   
-ids.forEach(id => {
-  const checkboxGroups = [
-    'kiswahili', 'english', 'seniorEnglish',
-    'seniorKiswahili', 'cre', 'other'
-  ];
-
-  let value;
-
-  if (checkboxGroups.includes(id)) {
-    value = Array.from(
-      document.querySelectorAll(
-        'input[name="' + id + '"]:checked'
-      )
-    ).map(input => input.value).join(", ");
-  } else {
-    const el = document.getElementById(id);
-    value = el.value;
-
-    if (id === 'date' && value) {
-      const d = new Date(value + 'T12:00:00');
-      value = new Intl.DateTimeFormat('en-GB', {
-        weekday: 'short',
-        day: '2-digit',
-        month: 'short',
-        year: 'numeric'
-      }).format(d);
-    }
-  }
-
-  if (value.trim()) {
-    message += labels[id] + ": " + value + "\n";
-  }
-});
-
 <div class="book-options">
   <label><input type="checkbox" name="kiswahili" value="Wema Hawozi"> Wema Hawozi</label>
   <label><input type="checkbox" name="kiswahili" value="Mshale wa Matumaini"> Mshale wa Matumaini</label>
