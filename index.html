@@ -59,6 +59,18 @@
     .contact p { color:#d2dbef; }
     .contact-box { padding:27px; border:1px solid #4b5b82; border-radius:17px; background:#ffffff08; }
     .contact-box label { display:block; margin:13px 0 6px; color:#e0e7f8; font-size:13px; font-weight:700; }
+.contact-box .book-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+}
+.contact-box .book-options input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  flex-shrink: 0;
+}
+    
     .contact-box input,.contact-box textarea,.contact-box select { width:100%; border:1px solid #56668e; border-radius:8px; padding:12px; background:#101b35; color:white; font:inherit; }
     .contact-box textarea { min-height:90px; resize:vertical; }
     .contact-box button { border:0; cursor:pointer; width:100%; margin-top:16px; font:inherit; }
@@ -160,14 +172,50 @@
   </select>
 
   <label for="kiswahili">JSS Kiswahili Setbooks</label>
-  <select id="kiswahili" multiple>
-    <option>Wema Hawozi</option>
-    <option>Mshale wa Matumaini</option>
-    <option>Hidaya</option>
-    <option>Hodi Hodi Mashairi</option>
-    <option>Mji wa Matarajio</option>
-    <option>Uteuzi wa Chale</option>
-  </select>
+  
+ids.forEach(id => {
+  const checkboxGroups = [
+    'kiswahili', 'english', 'seniorEnglish',
+    'seniorKiswahili', 'cre', 'other'
+  ];
+
+  let value;
+
+  if (checkboxGroups.includes(id)) {
+    value = Array.from(
+      document.querySelectorAll(
+        'input[name="' + id + '"]:checked'
+      )
+    ).map(input => input.value).join(", ");
+  } else {
+    const el = document.getElementById(id);
+    value = el.value;
+
+    if (id === 'date' && value) {
+      const d = new Date(value + 'T12:00:00');
+      value = new Intl.DateTimeFormat('en-GB', {
+        weekday: 'short',
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric'
+      }).format(d);
+    }
+  }
+
+  if (value.trim()) {
+    message += labels[id] + ": " + value + "\n";
+  }
+});
+
+<div class="book-options">
+  <label><input type="checkbox" name="kiswahili" value="Wema Hawozi"> Wema Hawozi</label>
+  <label><input type="checkbox" name="kiswahili" value="Mshale wa Matumaini"> Mshale wa Matumaini</label>
+  <label><input type="checkbox" name="kiswahili" value="Hidaya"> Hidaya</label>
+  <label><input type="checkbox" name="kiswahili" value="Hodi Hodi Mashairi"> Hodi Hodi Mashairi</label>
+  <label><input type="checkbox" name="kiswahili" value="Mji wa Matarajio"> Mji wa Matarajio</label>
+  <label><input type="checkbox" name="kiswahili" value="Uteuzi wa Chale"> Uteuzi wa Chale</label>
+</div>
+          
 
   <label for="english">JSS English Setbooks</label>
   
@@ -210,13 +258,13 @@
 </div>
           
   <label for="other">Other Performances</label>
-  <select id="other" multiple>
-    <option>Fasihi Simulizi</option>
-    <option>Oral Literature</option>
-    <option>Esther and Mordecai</option>
-    <option>David and Goliath</option>
-    <option>Abraham</option>
-  </select>
+<div class="book-options">
+  <label><input type="checkbox" name="other" value="Fasihi Simulizi"> Fasihi Simulizi</label>
+  <label><input type="checkbox" name="other" value="Oral Literature"> Oral Literature</label>
+  <label><input type="checkbox" name="other" value="Esther and Mordecai"> Esther and Mordecai</label>
+  <label><input type="checkbox" name="other" value="David and Goliath"> David and Goliath</label>
+  <label><input type="checkbox" name="other" value="Abraham"> Abraham</label>
+</div>
 
   <label for="custom">Specify Another Book or Performance that is not listed above</label>
   <input id="custom" placeholder="Enter book or performance title">
@@ -258,18 +306,41 @@ document.getElementById('enquiry').addEventListener('submit', function(e) {
 
   let message = "MEGA ARTS PRODUCTION - BOOKING ENQUIRY\n\n";
 
-  ids.forEach(id => {
+  
+ids.forEach(id => {
+  const checkboxGroups = [
+    'kiswahili', 'english', 'seniorEnglish',
+    'seniorKiswahili', 'cre', 'other'
+  ];
+
+  let value;
+
+  if (checkboxGroups.includes(id)) {
+    value = Array.from(
+      document.querySelectorAll(
+        'input[name="' + id + '"]:checked'
+      )
+    ).map(input => input.value).join(", ");
+  } else {
     const el = document.getElementById(id);
-    let value = el.value;
+    value = el.value;
 
-    if (el.multiple) {
-      value = Array.from(el.selectedOptions).map(o => o.value).join(", ");
+    if (id === 'date' && value) {
+      const d = new Date(value + 'T12:00:00');
+      value = new Intl.DateTimeFormat('en-GB', {
+        weekday: 'short',
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric'
+      }).format(d);
     }
+  }
 
-    if (value.trim()) {
-      message += labels[id] + ": " + value + "\n";
-    }
-  });
+  if (value.trim()) {
+    message += labels[id] + ": " + value + "\n";
+  }
+});
+  
 
   window.open(
     "https://wa.me/254714143724?text=" + encodeURIComponent(message),
