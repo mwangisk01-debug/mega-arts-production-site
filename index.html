@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mega Arts Production creates memorable school performances, live entertainment and creative productions.">
+  <title>Mega Arts Production | Stories That Move People</title>
+  <style>
+    :root { --navy:#101b35; --blue:#254ee4; --gold:#f4b942; --ink:#182033; --muted:#65708a; --paper:#f7f8fc; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:Arial,Helvetica,sans-serif; color:var(--ink); background:#fff; line-height:1.6; }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(1120px,92%); margin:auto; }
+    header { background:rgba(16,27,53,.97); color:white; position:sticky; top:0; z-index:5; }
+    .nav { min-height:76px; display:flex; justify-content:space-between; align-items:center; gap:18px; }
+    .brand { display:flex; align-items:center; gap:11px; font-weight:800; letter-spacing:.2px; }
+    .mark { width:42px; height:42px; display:grid; place-items:center; background:var(--gold); color:var(--navy); border-radius:12px; font-size:19px; font-weight:900; }
+    .brand small { display:block; font-size:10px; letter-spacing:2px; color:#c6d0e7; font-weight:600; }
+    nav { display:flex; gap:22px; align-items:center; font-size:14px; color:#e4e9f7; }
+    nav a:hover { color:var(--gold); }
+    .nav-cta,.btn { display:inline-flex; align-items:center; justify-content:center; border-radius:9px; padding:12px 17px; font-weight:700; background:var(--gold); color:var(--navy); }
+    .hero { color:white; background:radial-gradient(ellipse at 80% 10%,#334d98 0,transparent 40%),linear-gradient(125deg,#101b35 0%,#172956 70%,#243f82 100%); overflow:hidden; }
+    .hero-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:45px; align-items:center; padding:82px 0 88px; }
+    .eyebrow { text-transform:uppercase; letter-spacing:2.4px; font-size:12px; font-weight:800; color:var(--gold); }
+    h1 { font-size:clamp(42px,6vw,72px); line-height:1.02; letter-spacing:-2.6px; margin:17px 0 22px; max-width:680px; }
+    .hero p { color:#d9e1f4; font-size:18px; max-width:570px; }
+    .actions { display:flex; flex-wrap:wrap; gap:13px; margin-top:30px; }
+    .btn-outline { border:1px solid #8495c1; color:white; border-radius:9px; padding:11px 17px; font-weight:700; }
+    .hero-art { min-height:365px; border:1px solid #53699f; border-radius:24px; padding:24px; display:flex; align-items:end; background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02)); position:relative; }
+    .spotlight { position:absolute; width:220px; height:220px; border-radius:50%; background:radial-gradient(circle,#f4b94265,transparent 68%); top:18px; right:20px; }
+    .stage { width:100%; border-radius:16px; padding:28px; background:linear-gradient(135deg,#f4b942,#ffdf91); color:#101b35; position:relative; }
+    .stage .big { font-size:clamp(35px,4vw,55px); font-weight:900; letter-spacing:-2px; line-height:1; }
+    .stage p { color:#273451; font-size:14px; margin-bottom:0; }
+    .stage .stars { font-size:25px; letter-spacing:5px; margin-bottom:13px; }
+    .trust { background:#fff; border-bottom:1px solid #e9ecf4; }
+    .trust-row { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; padding:22px 0; text-align:center; color:#39445d; font-weight:700; font-size:14px; }
+    section { padding:78px 0; }
+    .section-head { max-width:680px; margin-bottom:34px; }
+    .section-head h2 { font-size:clamp(30px,4vw,44px); line-height:1.1; letter-spacing:-1.2px; margin:10px 0 13px; color:var(--navy); }
+    .section-head p { color:var(--muted); margin:0; }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .card { padding:27px; border:1px solid #e7eaf3; border-radius:16px; background:#fff; box-shadow:0 12px 35px #15234b08; }
+    .icon { width:48px; height:48px; display:grid; place-items:center; border-radius:13px; background:#edf1ff; font-size:23px; margin-bottom:20px; }
+    .card h3 { color:var(--navy); margin:0 0 10px; font-size:20px; }
+    .card p { color:var(--muted); font-size:15px; margin:0; }
+    .about { background:var(--paper); }
+    .about-grid { display:grid; grid-template-columns:.85fr 1.15fr; gap:55px; align-items:center; }
+    .about-panel { background:var(--navy); color:white; border-radius:22px; padding:34px; min-height:300px; display:flex; flex-direction:column; justify-content:space-between; }
+    .about-panel .quote { font-size:30px; font-weight:800; line-height:1.15; letter-spacing:-.8px; }
+    .about-panel .goldline { width:58px; height:5px; background:var(--gold); border-radius:5px; }
+    .about-copy h2 { color:var(--navy); font-size:clamp(30px,4vw,43px); line-height:1.1; letter-spacing:-1px; margin:10px 0 18px; }
+    .about-copy p { color:var(--muted); }
+    .checklist { padding:0; list-style:none; display:grid; gap:10px; margin-top:22px; }
+    .checklist li:before { content:"✓"; color:#214bd8; font-weight:900; margin-right:10px; }
+    .contact { background:var(--navy); color:white; }
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:35px; align-items:center; }
+    .contact h2 { font-size:clamp(32px,4vw,48px); line-height:1.08; margin:12px 0 18px; letter-spacing:-1px; }
+    .contact p { color:#d2dbef; }
+    .contact-box { padding:27px; border:1px solid #4b5b82; border-radius:17px; background:#ffffff08; }
+    .contact-box label { display:block; margin:13px 0 6px; color:#e0e7f8; font-size:13px; font-weight:700; }
+    .contact-box input,.contact-box textarea,.contact-box select { width:100%; border:1px solid #56668e; border-radius:8px; padding:12px; background:#101b35; color:white; font:inherit; }
+    .contact-box textarea { min-height:90px; resize:vertical; }
+    .contact-box button { border:0; cursor:pointer; width:100%; margin-top:16px; font:inherit; }
+    footer { background:#0b1328; color:#b9c4dd; padding:23px 0; font-size:13px; }
+    .foot { display:flex; justify-content:space-between; gap:15px; flex-wrap:wrap; }
+    @media(max-width:760px) {
+      nav { display:none; }
+      .hero-grid,.about-grid,.contact-grid { grid-template-columns:1fr; }
+      .hero-grid { padding:58px 0 62px; gap:30px; }
+      .hero-art { min-height:260px; }
+      .trust-row { grid-template-columns:1fr; gap:8px; text-align:left; }
+      section { padding:58px 0; }
+      .cards { grid-template-columns:1fr; }
+      .about-grid { gap:25px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home"><span class="mark">MA</span><span>MEGA ARTS<small>PRODUCTION</small></span></a>
+      <nav aria-label="Main navigation">
+        <a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a>
+      </nav>
+      <a class="nav-cta" href="#contact">Book a show ↗</a>
+    </div>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Creativity • Performance • Impact</div>
+          <h1>Stories that move people.</h1>
+          <p>Mega Arts Production brings ideas to life through engaging performances, creative productions and memorable live experiences.</p>
+          <div class="actions"><a class="btn" href="#contact">Let's work together ↗</a><a class="btn-outline" href="#services">Explore our services</a></div>
+        </div>
+        <div class="hero-art" aria-label="Creative production feature panel">
+          <div class="spotlight"></div>
+          <div class="stage"><div class="stars">✦ ✦ ✦</div><div class="big">MAKE IT<br>MEMORABLE.</div><p>Creative ideas. Powerful stories. Live experiences.</p></div>
+        </div>
+      </div>
+    </section>
+    <div class="trust"><div class="wrap trust-row"><div>✦ Creative storytelling</div><div>✦ Engaging live performances</div><div>✦ Made for real audiences</div></div></div>
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head"><div class="eyebrow">What we do</div><h2>Creative experiences with purpose.</h2><p>From school audiences to live events, we help turn a good idea into an experience people remember.</p></div>
+        <div class="cards">
+          <article class="card"><div class="icon">🎭</div><h3>School performances</h3><p>Engaging setbook, drama and educational performances designed to bring stories and learning to life.</p></article>
+          <article class="card"><div class="icon">🎬</div><h3>Creative production</h3><p>Performance concepts, storytelling and creative production support for events and audiences.</p></article>
+          <article class="card"><div class="icon">🎤</div><h3>Live entertainment</h3><p>Memorable live experiences tailored to your event, audience and goals.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="about" id="about">
+      <div class="wrap about-grid">
+        <div class="about-panel"><div class="goldline"></div><div class="quote">Every audience deserves a story worth remembering.</div><div><strong>MEGA ARTS PRODUCTION</strong><br><span style="color:#cbd5ee;font-size:13px">Creativity with purpose.</span></div></div>
+        <div class="about-copy"><div class="eyebrow">About Mega Arts</div><h2>We turn creativity into connection.</h2><p>Mega Arts Production is a creative performance brand focused on entertaining, educating and connecting with audiences through the power of stories.</p><p>We work with schools, organizers and partners to shape performances that fit their audience and occasion.</p><ul class="checklist"><li>Audience-focused planning</li><li>Creative and engaging delivery</li><li>Collaborative event coordination</li><li>Bookings tailored to your needs</li></ul></div>
+      </div>
+    </section>
+    <section class="contact" id="contact">
+      <div class="wrap contact-grid">
+        <div><div class="eyebrow">Start a conversation</div><h2>Let's create something memorable.</h2><p>Planning a school performance, event or creative project? Send an enquiry and tell us what you have in mind.</p><p><strong>Serving schools, organizers and creative partners.</strong></p></div>
+        <form class="contact-box" id="enquiry">
+          <div class="eyebrow">Booking enquiry</div>
+          <label for="person">Your name</label><input id="person" name="person" placeholder="Enter your name" required>
+          <label for="event">What are you planning?</label><select id="event" name="event"><option>School performance</option><option>Live entertainment</option><option>Creative production</option><option>Partnership</option><option>Other enquiry</option></select>
+          <label for="details">Tell us a little more</label><textarea id="details" name="details" placeholder="Event date, school or venue, audience size..." required></textarea>
+          <button class="btn" type="submit">Prepare enquiry message ↗</button>
+          <p style="font-size:12px;margin-bottom:0">This demo form prepares a message for you to copy. Add your official phone number and email before publishing.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap foot"><span>© <span id="year"></span> Mega Arts Production</span><span>Stories • Performance • Creativity</span></div></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('enquiry').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('person').value.trim();
+      const event = document.getElementById('event').value;
+      const details = document.getElementById('details').value.trim();
+      const message = `Hello Mega Arts Production, my name is ${name}. I am enquiring about: ${event}. Details: ${details}`;
+      const box = document.createElement('textarea');
+      box.value = message;
+      box.setAttribute('readonly','');
+      box.style.cssText = 'position:fixed;left:-9999px;top:0';
+      document.body.appendChild(box); box.select();
+      try { document.execCommand('copy'); alert('Enquiry message copied. Add your official WhatsApp number to the site so visitors can send it to you.'); }
+      catch (_) { alert(message); }
+      box.remove();
+    });
+  </script>
+</body>
+</html>
